@@ -1,15 +1,16 @@
-# Customize GitHub Copilot CLI
+# GitHub Copilot Across Multiple Modes
 
-A hands-on demo showcasing **GitHub Copilot CLI** building, deploying, and managing a mini web application — driven entirely by GitHub Issues and powered by Copilot CLI fleet mode.
+A hands-on demo showcasing **GitHub Copilot across multiple modes** — CLI, Agent Mode (IDE), Coding Agent (Web UI), and Custom Agents — building, deploying, and managing a mini web application driven entirely by GitHub Issues.
 
 ---
 
 ## About This Demo
 
-This demo walks through a realistic developer workflow driven entirely by GitHub Issues. Issues 2–7 can be assigned to Copilot CLI simultaneously via **fleet mode**, with each issue handled by a parallel subagent. Once all pages are built, an automated workflow triggers deployment to Azure.
+This demo walks through a realistic developer workflow driven entirely by GitHub Issues. Each issue is assigned to a different Copilot mode — **Copilot CLI**, **Agent Mode (IDE)**, **Coding Agent (Web UI)**, or a **Custom Agent** — demonstrating how they collaborate across a single project. Once all pages are built, an automated workflow triggers deployment to Azure.
 
 By the end of the demo, a small web app has been:
-- **Built** (home page + five child pages covering Copilot CLI customization topics)
+- **Built** (home page + five child pages, each tackled by a different Copilot mode)
+- **Audited** by a custom infrastructure agent
 - **Deployed** to Azure Container Apps via CI/CD
 
 ### Content Pages
@@ -29,9 +30,11 @@ By the end of the demo, a small web app has been:
 
 Before running this demo, make sure the following are in place:
 
-- A GitHub repository with **9 issues** (see [Getting Started](#getting-started) below to create them)
+- A GitHub repository with **10 issues** (see [Getting Started](#getting-started) below to create them)
 - **GitHub Copilot** enabled on the account and the repository
 - **Copilot CLI** installed and authenticated — verify with `gh auth status`
+- **VS Code** with Copilot Agent Mode for IDE-based issues
+- **GitHub.com** access for Coding Agent (Web UI) issues
 
 > 🎬 **The live demo starts at Issue 1.** All issues are worked through during the demo.
 
@@ -39,7 +42,7 @@ Before running this demo, make sure the following are in place:
 
 ## Getting Started
 
-After creating a new repo from this template, the **9 demo issues are not created automatically** — GitHub does not trigger workflows on the initial commit from a template.
+After creating a new repo from this template, the **10 demo issues are not created automatically** — GitHub does not trigger workflows on the initial commit from a template.
 
 Run this command once to seed all issues and labels:
 
@@ -131,9 +134,16 @@ After the demo is complete, delete all Azure resources (Resource Group, Containe
 
 ---
 
-## Fleet Mode & Auto-Deploy
+## Multi-Mode Workflow & Auto-Deploy
 
-Issues 2–7 can be assigned in parallel via **fleet mode** (Copilot CLI, Agent Mode, and Coding Agent labels). Issue 8 is handled by the custom auditor agent.
+Issues are spread across four Copilot modes, demonstrating how they work together:
+
+| Mode | Label | Issues |
+|---|---|---|
+| **Copilot CLI** | `copilot-cli` | 2, 5, 6, 7, 9 |
+| **Agent Mode (IDE)** | `agent-mode` | 3 |
+| **Coding Agent (Web UI)** | `coding-agent` | 4 |
+| **Custom Agent** | `aca-infra-auditor` | 8 |
 
 The `auto-deploy.yml` workflow watches for issue closures. When all six page issues (2–7) and Azure Infra Review (Issue 8) are closed, it automatically triggers the Azure Container Apps CI/CD deployment — no manual intervention needed for Issue 9.
 
@@ -162,7 +172,7 @@ The `auto-deploy.yml` workflow watches for issue closures. When all six page iss
 |---|---|
 | `README.md` | This file |
 | `Dockerfile` | Container image definition for Azure Container Apps deployment |
-| `index.html` | Home page — Customize GitHub Copilot CLI overview |
+| `index.html` | Home page — GitHub Copilot overview with navigation |
 | `gh-copilot-vscode.html` | Child page — GH Copilot in VS Code |
 | `gh-copilot-web-ui.html` | Child page — GH Copilot in Web UI |
 | `gh-copilot-cli.html` | Child page — GH Copilot CLI |

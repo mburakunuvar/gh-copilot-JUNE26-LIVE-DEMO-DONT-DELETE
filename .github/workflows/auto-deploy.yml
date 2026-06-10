@@ -9,6 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       issues: write
+      contents: read
+      actions: write
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       REPO: ${{ github.repository }}
