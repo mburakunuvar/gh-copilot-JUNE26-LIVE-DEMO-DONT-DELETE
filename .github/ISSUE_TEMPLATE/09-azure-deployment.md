@@ -1,5 +1,5 @@
 ---
-name: "Issue 8 — Azure Deployment"
+name: "Issue 9 — Azure Deployment"
 about: "Verify and trigger deployment after all pages are built"
 title: "Azure Deployment"
 labels: "copilot-cli"
@@ -14,7 +14,7 @@ The application is deployed to Azure Container Apps and a CI/CD workflow is in p
 > ```
 
 For this step:
-1. Confirm the **Home Page**, **Custom Instructions**, **Skills**, **Custom Agents**, **MCP Servers**, and **Hooks** issues are closed
+1. Confirm the **Home Page**, **GH Copilot in VS Code**, **GH Copilot in Web UI**, **GH Copilot CLI**, **GH Copilot SDK**, **GH Copilot App**, and **Azure Infra Review** issues are closed
 2. Verify the latest changes are live at the deployed URL
 3. If anything needs to be re-triggered, trigger the workflow manually using the command above
 

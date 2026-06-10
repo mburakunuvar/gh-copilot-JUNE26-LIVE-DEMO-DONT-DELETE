@@ -1,16 +1,17 @@
 ---
-name: "Issue 7 — Hooks Page"
-about: "Build the Hooks child page"
-title: "Hooks Page"
+name: "Issue 6 — GH Copilot SDK Page"
+about: "Build the GH Copilot SDK child page"
+title: "GH Copilot SDK Page"
 labels: "copilot-cli"
 ---
 
 ## Task
-Build a child page for adding hooks for GitHub Copilot CLI.
+Build a child page for **GH Copilot SDK**.
 
-- Title: **Adding Hooks for GitHub Copilot CLI**
+- Title: **GH Copilot SDK**
+- File name: `gh-copilot-sdk.html`
 - The page should follow the same structure and style as the home page (`index.html`).
-- Use https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-hooks for content.
+- Use https://github.com/github/copilot-sdk?utm_source=blog-cli-sdk-repo-cta&utm_medium=blog&utm_campaign=cli-sdk-jan-2026 for content.
 
 ## Assigned to
 GitHub Copilot CLI

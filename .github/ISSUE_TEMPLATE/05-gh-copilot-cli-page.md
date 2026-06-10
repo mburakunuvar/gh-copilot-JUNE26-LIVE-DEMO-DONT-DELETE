@@ -1,16 +1,17 @@
 ---
-name: "Issue 5 — Custom Agents Page"
-about: "Build the Custom Agents child page"
-title: "Custom Agents Page"
+name: "Issue 5 — GH Copilot CLI Page"
+about: "Build the GH Copilot CLI child page"
+title: "GH Copilot CLI Page"
 labels: "copilot-cli"
 ---
 
 ## Task
-Build a child page for creating and using custom agents for GitHub Copilot CLI.
+Build a child page for **GH Copilot CLI**.
 
-- Title: **Creating and Using Custom Agents for GitHub Copilot CLI**
+- Title: **GH Copilot CLI**
+- File name: `gh-copilot-cli.html`
 - The page should follow the same structure and style as the home page (`index.html`).
-- Use https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/create-custom-agents-for-cli for content.
+- Use https://docs.github.com/en/copilot/how-tos/copilot-cli/use-copilot-cli/overview for content.
 
 ## Assigned to
 GitHub Copilot CLI

@@ -21,6 +21,7 @@ jobs:
           gh label create "coding-agent" --repo "$REPO" --color "0E8A16" --description "Assigned to GitHub Coding Agent"  --force
           gh label create "copilot-cli"  --repo "$REPO" --color "1D76DB" --description "Assigned to Copilot CLI"          --force
           gh label create "agent-mode"   --repo "$REPO" --color "5319E7" --description "Assigned to Agent Mode in IDE"    --force
+          gh label create "aca-infra-auditor" --repo "$REPO" --color "B60205" --description "Assigned to ACA infra custom auditor agent" --force
           gh label create "post-demo"    --repo "$REPO" --color "FBCA04" --description "Post-demo cleanup tasks"          --force
 
       - name: Check if demo issues already exist
@@ -73,13 +74,13 @@ jobs:
           - Title: **Customize GitHub Copilot CLI**
           - Copilot CLI works best when customized for your specific project and workflow.
           - Five navigation buttons linking to:
-            1. **Custom Instructions** → `custominstructions.html`
-            2. **Skills** → `skills.html`
-            3. **Custom Agents** → `customagents.html`
-            4. **MCP Servers** → `mcp.html`
-            5. **Hooks** → `hooks.html`
+            1. **GH Copilot in VS Code** → `gh-copilot-vscode.html`
+            2. **GH Copilot in Web UI** → `gh-copilot-web-ui.html`
+            3. **GH Copilot CLI** → `gh-copilot-cli.html`
+            4. **GH Copilot SDK** → `gh-copilot-sdk.html`
+            5. **GH Copilot App** → `gh-copilot-app.html`
 
-          The HTML files (`index.html`, `custominstructions.html`, `skills.html`, `customagents.html`, `mcp.html`, `hooks.html`) already exist in the repo — no need to create the folder structure.
+          The topic pages (`gh-copilot-vscode.html`, `gh-copilot-web-ui.html`, `gh-copilot-cli.html`, `gh-copilot-sdk.html`, `gh-copilot-app.html`) already exist in the repo — update and beautify them to match the home page style.
 
           ## Assigned to
           GitHub Copilot CLI
@@ -87,16 +88,69 @@ jobs:
           sed -i 's/^          //' /tmp/body.md
           gh issue create --repo "$REPO" --label "copilot-cli" --title "Scaffold and Beautify the Home Page" --body-file /tmp/body.md
 
-      - name: Issue 3 — Custom Instructions Page
+      - name: Issue 3 — GH Copilot in VS Code Page
         if: steps.check.outputs.skip == 'false'
         run: |
           cat > /tmp/body.md <<'EOF'
           ## Task
-          Build a child page for adding custom instructions for GitHub Copilot CLI.
+          Build a child page for **GH Copilot in VS Code**.
 
-          - Title: **Custom Instructions for GitHub Copilot CLI**
+          - Title: **GH Copilot in VS Code**
+          - File name: `gh-copilot-vscode.html`
           - The page should follow the same structure and style as the home page (`index.html`).
-          - Use https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-custom-instructions for content.
+          - Use https://code.visualstudio.com/docs/agents/concepts/overview for content.
+
+          ## Assigned to
+          Copilot Agent Mode (IDE)
+
+          ## Completion
+          Once the page is built:
+          1. Commit the changes
+          2. Pull and rebase from remote: `git pull --rebase origin main`
+          3. Push to remote: `git push origin main`
+          4. Close this issue from the GitHub UI or with `gh issue close <this-issue-number>`
+          EOF
+          sed -i 's/^          //' /tmp/body.md
+          gh issue create --repo "$REPO" --label "agent-mode" --title "GH Copilot in VS Code Page" --body-file /tmp/body.md
+
+      - name: Issue 4 — GH Copilot in Web UI Page
+        if: steps.check.outputs.skip == 'false'
+        run: |
+          cat > /tmp/body.md <<'EOF'
+          ## Task
+          Build a child page for **GH Copilot in Web UI**.
+
+          - Title: **GH Copilot in Web UI**
+          - File name: `gh-copilot-web-ui.html`
+          - The page should follow the same structure and style as the home page (`index.html`).
+          - Include links to:
+            - https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent
+            - https://docs.github.com/en/copilot/concepts/agents/code-review
+
+          ## Assigned to
+          GitHub Coding Agent (Web UI)
+
+          ## Completion
+          Once the page is built:
+          1. Commit the changes
+          2. Pull and rebase from remote: `git pull --rebase origin main`
+          3. Push to remote: `git push origin main`
+          4. Close this issue from the GitHub UI or with `gh issue close <this-issue-number>`
+          EOF
+          sed -i 's/^          //' /tmp/body.md
+          gh issue create --repo "$REPO" --label "coding-agent" --title "GH Copilot in Web UI Page" --body-file /tmp/body.md
+
+      - name: Issue 5 — GH Copilot CLI Page
+        if: steps.check.outputs.skip == 'false'
+        run: |
+          cat > /tmp/body.md <<'EOF'
+          ## Task
+          Build a child page for **GH Copilot CLI**.
+
+          - Title: **GH Copilot CLI**
+          - File name: `gh-copilot-cli.html`
+          - The page should follow the same structure and style as the home page (`index.html`).
+          - Use https://docs.github.com/en/copilot/how-tos/copilot-cli/use-copilot-cli/overview for content.
 
           ## Assigned to
           GitHub Copilot CLI
@@ -109,18 +163,19 @@ jobs:
           4. Close this issue from the GitHub UI or with `gh issue close <this-issue-number>`
           EOF
           sed -i 's/^          //' /tmp/body.md
-          gh issue create --repo "$REPO" --label "copilot-cli" --title "Custom Instructions Page" --body-file /tmp/body.md
+          gh issue create --repo "$REPO" --label "copilot-cli" --title "GH Copilot CLI Page" --body-file /tmp/body.md
 
-      - name: Issue 4 — Skills Page
+      - name: Issue 6 — GH Copilot SDK Page
         if: steps.check.outputs.skip == 'false'
         run: |
           cat > /tmp/body.md <<'EOF'
           ## Task
-          Build a child page for adding agent skills for GitHub Copilot CLI.
+          Build a child page for **GH Copilot SDK**.
 
-          - Title: **Adding Agent Skills for GitHub Copilot CLI**
+          - Title: **GH Copilot SDK**
+          - File name: `gh-copilot-sdk.html`
           - The page should follow the same structure and style as the home page (`index.html`).
-          - Use https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-skills for content.
+          - Use https://github.com/github/copilot-sdk?utm_source=blog-cli-sdk-repo-cta&utm_medium=blog&utm_campaign=cli-sdk-jan-2026 for content.
 
           ## Assigned to
           GitHub Copilot CLI
@@ -133,18 +188,19 @@ jobs:
           4. Close this issue from the GitHub UI or with `gh issue close <this-issue-number>`
           EOF
           sed -i 's/^          //' /tmp/body.md
-          gh issue create --repo "$REPO" --label "copilot-cli" --title "Skills Page" --body-file /tmp/body.md
+          gh issue create --repo "$REPO" --label "copilot-cli" --title "GH Copilot SDK Page" --body-file /tmp/body.md
 
-      - name: Issue 5 — Custom Agents Page
+      - name: Issue 7 — GH Copilot App Page
         if: steps.check.outputs.skip == 'false'
         run: |
           cat > /tmp/body.md <<'EOF'
           ## Task
-          Build a child page for creating and using custom agents for GitHub Copilot CLI.
+          Build a child page for **GH Copilot App**.
 
-          - Title: **Creating and Using Custom Agents for GitHub Copilot CLI**
+          - Title: **GH Copilot App**
+          - File name: `gh-copilot-app.html`
           - The page should follow the same structure and style as the home page (`index.html`).
-          - Use https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/create-custom-agents-for-cli for content.
+          - Use https://github.com/github/app for content.
 
           ## Assigned to
           GitHub Copilot CLI
@@ -157,57 +213,33 @@ jobs:
           4. Close this issue from the GitHub UI or with `gh issue close <this-issue-number>`
           EOF
           sed -i 's/^          //' /tmp/body.md
-          gh issue create --repo "$REPO" --label "copilot-cli" --title "Custom Agents Page" --body-file /tmp/body.md
+          gh issue create --repo "$REPO" --label "copilot-cli" --title "GH Copilot App Page" --body-file /tmp/body.md
 
-      - name: Issue 6 — MCP Servers Page
+      - name: Issue 8 — Azure Infra Review
         if: steps.check.outputs.skip == 'false'
         run: |
           cat > /tmp/body.md <<'EOF'
           ## Task
-          Build a child page for adding MCP servers for GitHub Copilot CLI.
+          Run an Azure Container Apps infrastructure review using the custom agent `aca-infra-auditor.agent`.
 
-          - Title: **Adding MCP Servers for GitHub Copilot CLI**
-          - The page should follow the same structure and style as the home page (`index.html`).
-          - Use https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers for content.
+          - Title: **Azure Infra Review**
+          - Review from an Azure Well-Architected perspective and suggest short, practical improvements for demo usage.
+          - Keep findings concise and actionable.
+          - Reference guidance: https://github.com/MicrosoftDocs/well-architected/blob/main/well-architected/service-guides/azure-container-apps.md
 
-          ## Assigned to
-          GitHub Copilot CLI
-
-          ## Completion
-          Once the page is built:
-          1. Commit the changes
-          2. Pull and rebase from remote: `git pull --rebase origin main`
-          3. Push to remote: `git push origin main`
-          4. Close this issue from the GitHub UI or with `gh issue close <this-issue-number>`
-          EOF
-          sed -i 's/^          //' /tmp/body.md
-          gh issue create --repo "$REPO" --label "copilot-cli" --title "MCP Servers Page" --body-file /tmp/body.md
-
-      - name: Issue 7 — Hooks Page
-        if: steps.check.outputs.skip == 'false'
-        run: |
-          cat > /tmp/body.md <<'EOF'
-          ## Task
-          Build a child page for adding hooks for GitHub Copilot CLI.
-
-          - Title: **Adding Hooks for GitHub Copilot CLI**
-          - The page should follow the same structure and style as the home page (`index.html`).
-          - Use https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/use-hooks for content.
+          ## Pre-flight requirement
+          The **Azure Container Apps Setup** issue must be completed first.
 
           ## Assigned to
-          GitHub Copilot CLI
+          Custom agent `aca-infra-auditor.agent`
 
           ## Completion
-          Once the page is built:
-          1. Commit the changes
-          2. Pull and rebase from remote: `git pull --rebase origin main`
-          3. Push to remote: `git push origin main`
-          4. Close this issue from the GitHub UI or with `gh issue close <this-issue-number>`
+          Document recommended improvements and close this issue.
           EOF
           sed -i 's/^          //' /tmp/body.md
-          gh issue create --repo "$REPO" --label "copilot-cli" --title "Hooks Page" --body-file /tmp/body.md
+          gh issue create --repo "$REPO" --label "aca-infra-auditor" --title "Azure Infra Review" --body-file /tmp/body.md
 
-      - name: Issue 8 — Azure Deployment
+      - name: Issue 9 — Azure Deployment
         if: steps.check.outputs.skip == 'false'
         run: |
           cat > /tmp/body.md <<'EOF'
@@ -220,7 +252,7 @@ jobs:
           > ```
 
           For this step:
-          1. Confirm the **Home Page**, **Custom Instructions**, **Skills**, **Custom Agents**, **MCP Servers**, and **Hooks** issues are closed
+          1. Confirm the **Home Page**, **GH Copilot in VS Code**, **GH Copilot in Web UI**, **GH Copilot CLI**, **GH Copilot SDK**, **GH Copilot App**, and **Azure Infra Review** issues are closed
           2. Verify the latest changes are live at the deployed URL
           3. If anything needs to be re-triggered, trigger the workflow manually using the command above
 
@@ -236,7 +268,7 @@ jobs:
           sed -i 's/^          //' /tmp/body.md
           gh issue create --repo "$REPO" --label "copilot-cli" --title "Azure Deployment" --body-file /tmp/body.md
 
-      - name: Issue 9 — Clean Up Azure Resources
+      - name: Issue 10 — Clean Up Azure Resources
         if: steps.check.outputs.skip == 'false'
         run: |
           cat > /tmp/body.md <<'EOF'

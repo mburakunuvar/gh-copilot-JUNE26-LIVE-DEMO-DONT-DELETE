@@ -1,16 +1,17 @@
 ---
-name: "Issue 4 — Skills Page"
-about: "Build the Skills child page"
-title: "Skills Page"
+name: "Issue 7 — GH Copilot App Page"
+about: "Build the GH Copilot App child page"
+title: "GH Copilot App Page"
 labels: "copilot-cli"
 ---
 
 ## Task
-Build a child page for adding agent skills for GitHub Copilot CLI.
+Build a child page for **GH Copilot App**.
 
-- Title: **Adding Agent Skills for GitHub Copilot CLI**
+- Title: **GH Copilot App**
+- File name: `gh-copilot-app.html`
 - The page should follow the same structure and style as the home page (`index.html`).
-- Use https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-skills for content.
+- Use https://github.com/github/app for content.
 
 ## Assigned to
 GitHub Copilot CLI

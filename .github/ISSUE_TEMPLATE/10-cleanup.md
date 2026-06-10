@@ -1,5 +1,5 @@
 ---
-name: "Issue 9 — Clean Up Azure Resources"
+name: "Issue 10 — Clean Up Azure Resources"
 about: "Delete all Azure resources after the demo is complete"
 title: "Clean Up Azure Resources"
 labels: "post-demo"
