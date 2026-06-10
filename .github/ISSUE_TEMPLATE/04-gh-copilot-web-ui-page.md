@@ -2,7 +2,7 @@
 name: "Issue 4 — GH Copilot in Web UI Page"
 about: "Build the GH Copilot in Web UI child page"
 title: "GH Copilot in Web UI Page"
-labels: "coding-agent"
+labels: "agent-mode"
 ---
 
 ## Task
@@ -16,7 +16,7 @@ Build a child page for **GH Copilot in Web UI**.
 	- https://docs.github.com/en/copilot/concepts/agents/code-review
 
 ## Assigned to
-GitHub Coding Agent (Web UI)
+Cloud Agent on Github.com
 
 ## Completion
 Once the page is built:

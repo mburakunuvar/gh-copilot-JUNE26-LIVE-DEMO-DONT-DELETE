@@ -1,5 +1,5 @@
 ---
-name: "Issue 9 — Azure Deployment"
+name: "Issue 8 — Azure Deployment"
 about: "Verify and trigger deployment after all pages are built"
 title: "Azure Deployment"
 labels: "copilot-cli"

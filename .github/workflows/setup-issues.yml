@@ -18,7 +18,7 @@ jobs:
       - name: Create labels
         run: |
           gh label create "init-demo"    --repo "$REPO" --color "D93F0B" --description "Initial demo setup tasks"         --force
-          gh label create "coding-agent" --repo "$REPO" --color "0E8A16" --description "Assigned to GitHub Coding Agent"  --force
+          gh label create "coding-agent" --repo "$REPO" --color "0E8A16" --description "Assigned to Cloud Agent on Github.com"  --force
           gh label create "copilot-cli"  --repo "$REPO" --color "1D76DB" --description "Assigned to Copilot CLI"          --force
           gh label create "agent-mode"   --repo "$REPO" --color "5319E7" --description "Assigned to Agent Mode in IDE"    --force
           gh label create "aca-infra-auditor" --repo "$REPO" --color "B60205" --description "Assigned to ACA infra custom auditor agent" --force
@@ -70,9 +70,9 @@ jobs:
         run: |
           cat > /tmp/body.md <<'EOF'
           ## Task
-          Scaffold and beautify the existing `index.html` as a **Customize GitHub Copilot CLI** overview page with:
-          - Title: **Customize GitHub Copilot CLI**
-          - Copilot CLI works best when customized for your specific project and workflow.
+          Scaffold and beautify the existing `index.html` as an **Explore GitHub Copilot** overview page with:
+          - Title: **Explore GitHub Copilot across multiple modes**
+          - Explore GitHub Copilot across multiple modes — IDE, Web UI, CLI, SDK, and App.
           - Five navigation buttons linking to:
             1. **GH Copilot in VS Code** → `gh-copilot-vscode.html`
             2. **GH Copilot in Web UI** → `gh-copilot-web-ui.html`
@@ -101,7 +101,7 @@ jobs:
           - Use https://code.visualstudio.com/docs/agents/concepts/overview for content.
 
           ## Assigned to
-          GitHub Coding Agent (Web UI)
+          Cloud Agent on Github.com
 
           ## Completion
           Once the page is built:

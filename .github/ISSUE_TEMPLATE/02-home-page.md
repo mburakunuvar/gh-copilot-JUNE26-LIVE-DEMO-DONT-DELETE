@@ -1,14 +1,14 @@
 ---
 name: "Issue 2 — Scaffold and Beautify the Home Page"
-about: "Scaffold and beautify index.html as a Customize GitHub Copilot CLI overview"
+about: "Scaffold and beautify index.html as an Explore GitHub Copilot overview"
 title: "Scaffold and Beautify the Home Page"
 labels: "copilot-cli"
 ---
 
 ## Task
-Scaffold and beautify the existing `index.html` as a **Customize GitHub Copilot CLI** overview page with:
-- Title: **Customize GitHub Copilot CLI**
-- Copilot CLI works best when customized for your specific project and workflow.
+Scaffold and beautify the existing `index.html` as an **Explore GitHub Copilot** overview page with:
+- Title: **Explore GitHub Copilot across multiple modes**
+- Explore GitHub Copilot across multiple modes — IDE, Web UI, CLI, SDK, and App.
 - Five navigation buttons linking to:
   1. **GH Copilot in VS Code** → `gh-copilot-vscode.html`
   2. **GH Copilot in Web UI** → `gh-copilot-web-ui.html`

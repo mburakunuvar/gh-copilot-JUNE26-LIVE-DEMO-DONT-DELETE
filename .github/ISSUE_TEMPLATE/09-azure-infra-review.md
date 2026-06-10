@@ -1,5 +1,5 @@
 ---
-name: "Issue 8 — Azure Infra Review"
+name: "Issue 9 — Azure Infra Review"
 about: "Run Azure Container Apps infrastructure review using custom auditor agent"
 title: "Azure Infra Review"
 labels: "aca-infra-auditor"
