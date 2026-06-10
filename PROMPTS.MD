@@ -17,8 +17,9 @@ This file captures the current, canonical issue/page model used by the demo work
 5. GH Copilot CLI Page (`copilot-cli`)
 6. GH Copilot SDK Page (`copilot-cli`)
 7. GH Copilot App Page (`copilot-cli`)
-8. Azure Deployment (`copilot-cli`)
-9. Clean Up Azure Resources (`post-demo`)
+8. Azure Infra Review (`aca-infra-auditor`)
+9. Azure Deployment (`copilot-cli`)
+10. Clean Up Azure Resources (`post-demo`)
 
 ## Source Links for Child Pages
 - GH Copilot in VS Code: https://code.visualstudio.com/docs/agents/concepts/overview
