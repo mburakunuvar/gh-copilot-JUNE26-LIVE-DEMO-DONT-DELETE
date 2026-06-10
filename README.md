@@ -29,7 +29,7 @@ By the end of the demo, a small web app has been:
 
 | Page | Topic | Source |
 |---|---|---|
-| **Home** (`index.html`) | Customize GitHub Copilot CLI — overview with navigation to all child pages | — |
+| **Home** (`index.html`) | Welcome to GH Copilot — overview with navigation to all child pages | — |
 | **GH Copilot in VS Code** (`gh-copilot-vscode.html`) | Copilot agent concepts in VS Code | [How AI works in VS Code](https://code.visualstudio.com/docs/agents/concepts/overview) |
 | **GH Copilot in Web UI** (`gh-copilot-web-ui.html`) | Cloud agent and code review in GitHub | [About GitHub Copilot cloud agent](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent), [About GitHub Copilot code review](https://docs.github.com/en/copilot/concepts/agents/code-review) |
 | **GH Copilot CLI** (`gh-copilot-cli.html`) | Using Copilot from terminal workflows | [Using GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/use-copilot-cli/overview) |
@@ -84,19 +84,19 @@ Create Azure Container Registry and Container Apps resources, add deployment sec
 ### Issue 2 — Scaffold and Beautify the Home Page
 **Label**: `copilot-cli`
 
-Scaffold and beautify `index.html` as a **Customize GitHub Copilot CLI** overview page with five navigation buttons linking to these child pages: GH Copilot in VS Code, GH Copilot in Web UI, GH Copilot CLI, GH Copilot SDK, GH Copilot App.
+Scaffold and beautify `index.html` as a **Welcome to GH Copilot** overview page with five navigation buttons linking to these child pages: GH Copilot in VS Code, GH Copilot in Web UI, GH Copilot CLI, GH Copilot SDK, GH Copilot App.
 
 ---
 
 ### Issue 3 — GH Copilot in VS Code Page
-**Label**: `agent-mode`
+**Label**: `coding-agent`
 
 Build a child page for GH Copilot in VS Code. Follows the same structure and style as the home page.
 
 ---
 
 ### Issue 4 — GH Copilot in Web UI Page
-**Label**: `coding-agent`
+**Label**: `agent-mode`
 
 Build a child page for GH Copilot in Web UI. Follows the same structure and style as the home page.
 
@@ -123,19 +123,19 @@ Build a child page for GH Copilot App. Follows the same structure and style as t
 
 ---
 
-### Issue 8 — Azure Infra Review
-**Label**: `aca-infra-auditor`
+### Issue 8 — Azure Deployment
+**Label**: `copilot-cli`
 
-Run an Azure Container Apps infrastructure review using the custom agent `aca-infra-auditor.agent`, then capture short, actionable recommendations before deployment.
+> **⚠️ Prerequisite**: Issues #2–#7 must be closed before deployment. Issue #1 (Azure Container Apps Setup) must be completed first.
+
+Verify all page issues are closed, then trigger the deployment workflow. The `auto-deploy.yml` workflow can also trigger this automatically when the last page issue and Azure Infra Review are closed.
 
 ---
 
-### Issue 9 — Azure Deployment
-**Label**: `copilot-cli`
+### Issue 9 — Azure Infra Review
+**Label**: `aca-infra-auditor`
 
-> **⚠️ Prerequisite**: Issues #2–#8 must be closed before deployment. Issue #1 (Azure Container Apps Setup) must be completed first.
-
-Verify all page issues are closed, then trigger the deployment workflow. The `auto-deploy.yml` workflow can also trigger this automatically when the last page issue is closed.
+Run an Azure Container Apps infrastructure review using the custom agent `aca-infra-auditor.agent`, then capture short, actionable recommendations.
 
 ---
 
@@ -152,12 +152,12 @@ Issues are spread across four Copilot modes, demonstrating how they work togethe
 
 | Mode | Label | Issues |
 |---|---|---|
-| **Copilot CLI** | `copilot-cli` | 2, 5, 6, 7, 9 |
-| **Agent Mode (IDE)** | `agent-mode` | 3 |
-| **Coding Agent (Web UI)** | `coding-agent` | 4 |
-| **Custom Agent** | `aca-infra-auditor` | 8 |
+| **Copilot CLI** | `copilot-cli` | 2, 5, 6, 7, 8 |
+| **Agent Mode (IDE)** | `agent-mode` | 4 |
+| **Coding Agent (Web UI)** | `coding-agent` | 3 |
+| **Custom Agent** | `aca-infra-auditor` | 9 |
 
-The `auto-deploy.yml` workflow watches for issue closures. When all six page issues (2–7) and Azure Infra Review (Issue 8) are closed, it automatically triggers the Azure Container Apps CI/CD deployment — no manual intervention needed for Issue 9.
+The `auto-deploy.yml` workflow watches for issue closures. When all six page issues (2–7) are closed, it automatically triggers the Azure Container Apps CI/CD deployment (Issue 8). Azure Infra Review (Issue 9) is run manually after deployment is verified.
 
 ---
 
@@ -167,13 +167,13 @@ The `auto-deploy.yml` workflow watches for issue closures. When all six page iss
 |---|---|---|
 | 1 | Azure Container Apps Setup | `init-demo` |
 | 2 | Scaffold & Beautify Home Page | `copilot-cli` |
-| 3 | GH Copilot in VS Code Page | `agent-mode` |
-| 4 | GH Copilot in Web UI Page | `coding-agent` |
+| 3 | GH Copilot in VS Code Page | `coding-agent` |
+| 4 | GH Copilot in Web UI Page | `agent-mode` |
 | 5 | GH Copilot CLI Page | `copilot-cli` |
 | 6 | GH Copilot SDK Page | `copilot-cli` |
 | 7 | GH Copilot App Page | `copilot-cli` |
-| 8 | Azure Infra Review | `aca-infra-auditor` |
-| 9 | Azure Deployment | `copilot-cli` |
+| 8 | Azure Deployment | `copilot-cli` |
+| 9 | Azure Infra Review | `aca-infra-auditor` |
 | 10 | Clean Up Azure Resources | `post-demo` |
 
 ---
@@ -194,5 +194,5 @@ The `auto-deploy.yml` workflow watches for issue closures. When all six page iss
 | `azure_resource.md` | Azure resource details (filled in during Issue #1) |
 | `.github/workflows/setup-issues.yml` | Creates issues and labels — trigger manually after using the template (see [Getting Started](#getting-started)) |
 | `.github/workflows/azure-container-apps.yml` | Manual-trigger deployment to Azure Container Apps |
-| `.github/workflows/auto-deploy.yml` | Auto-triggers deployment when all page issues (2–7) and Azure Infra Review (Issue 8) are closed |
+| `.github/workflows/auto-deploy.yml` | Auto-triggers deployment when all page issues (2–7) are closed |
 | `.github/agents/aca-infra-auditor.agent.md` | Custom agent for auditing Azure Container Apps deployments |

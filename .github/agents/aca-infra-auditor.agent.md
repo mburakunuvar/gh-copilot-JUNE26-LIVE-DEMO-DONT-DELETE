@@ -1,11 +1,6 @@
 ---
 description: "Audits Azure Container Apps deployments against the Well-Architected Framework. Use when the user asks to review, audit, validate, or improve their ACA setup, configuration, or deployment."
 name: aca-infra-auditor
-tools:
-  - bash
-  - glob
-  - grep
-  - view
 ---
 
 # aca-infra-auditor instructions
@@ -134,6 +129,16 @@ For each pillar with findings:
 ## Next Steps
 - Phase 2 improvements
 - Monitoring and validation approach
+
+## Saving the Report
+After completing the audit, save the full report to `AzureInfraReview.md` in the repository root. This file is listed in `.gitignore` and is for local reference only — do NOT commit it.
+
+## Issue Closure
+After saving the report and posting findings, close the associated GitHub issue using the `gh` CLI:
+```bash
+gh issue close <issue-number> --repo <owner/repo>
+```
+Do NOT skip this step or say you cannot do it — you have full tool access including the terminal.
 
 Edge Cases & Boundaries:
 

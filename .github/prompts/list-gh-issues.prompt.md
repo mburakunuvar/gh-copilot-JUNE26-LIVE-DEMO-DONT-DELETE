@@ -6,7 +6,13 @@ argument-hint: 'Optional: state (open/closed/all), label, or assignee'
 
 List the GitHub issues for the current repository using the `gh` CLI.
 
-By default, list **open** issues without prompting the user. Only ask for filters if the user explicitly requested a different state, a label filter, or an assignee filter in their message.
+By default, list **open** issues without prompting the user.
+
+Infer optional filters directly from the user's message:
+- If the user requests a different state, use that state (`open`, `closed`, or `all`).
+- If the user requests a label filter, add `--label "<label>"`.
+- If the user requests an assignee filter, add `--assignee "<username>"`.
+- If no filter is requested, use only `--state open`.
 
 Run the following command in the terminal:
 
@@ -14,10 +20,7 @@ Run the following command in the terminal:
 gh issue list --state open --limit 50 --json number,title,state,labels,assignees,createdAt
 ```
 
-- If the user specified a different state (e.g. "closed", "all"), replace `--state open` accordingly.
-- If the user specified a label filter, append `--label "<label>"`.
-- If the user specified an assignee filter, append `--assignee "<username>"`.
-- Do NOT prompt the user for these values — infer them from the user's message, and default to `--state open` with no extra filters otherwise.
+- Do NOT prompt the user for these values.
 
 After running the command, present the results as a Markdown table with these columns:
 

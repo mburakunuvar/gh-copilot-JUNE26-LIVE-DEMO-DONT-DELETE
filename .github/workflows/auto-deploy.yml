@@ -18,7 +18,7 @@ jobs:
       - name: Check if all prerequisite issues are closed
         id: check
         run: |
-          TITLES=("Scaffold and Beautify the Home Page" "GH Copilot in VS Code Page" "GH Copilot in Web UI Page" "GH Copilot CLI Page" "GH Copilot SDK Page" "GH Copilot App Page" "Azure Infra Review")
+          TITLES=("Scaffold and Beautify the Home Page" "GH Copilot in VS Code Page" "GH Copilot in Web UI Page" "GH Copilot CLI Page" "GH Copilot SDK Page" "GH Copilot App Page")
           for TITLE in "${TITLES[@]}"; do
             OPEN=$(gh issue list --repo "$REPO" --state open --search "$TITLE in:title" --json number --jq 'length')
             if [ "$OPEN" -gt 0 ]; then

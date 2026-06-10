@@ -101,7 +101,7 @@ jobs:
           - Use https://code.visualstudio.com/docs/agents/concepts/overview for content.
 
           ## Assigned to
-          Copilot Agent Mode (IDE)
+          GitHub Coding Agent (Web UI)
 
           ## Completion
           Once the page is built:
@@ -111,7 +111,7 @@ jobs:
           4. Close this issue from the GitHub UI or with `gh issue close <this-issue-number>`
           EOF
           sed -i 's/^          //' /tmp/body.md
-          gh issue create --repo "$REPO" --label "agent-mode" --title "GH Copilot in VS Code Page" --body-file /tmp/body.md
+          gh issue create --repo "$REPO" --label "coding-agent" --title "GH Copilot in VS Code Page" --body-file /tmp/body.md
 
       - name: Issue 4 — GH Copilot in Web UI Page
         if: steps.check.outputs.skip == 'false'
@@ -128,7 +128,7 @@ jobs:
             - https://docs.github.com/en/copilot/concepts/agents/code-review
 
           ## Assigned to
-          GitHub Coding Agent (Web UI)
+          Copilot Agent Mode (IDE)
 
           ## Completion
           Once the page is built:
@@ -138,7 +138,7 @@ jobs:
           4. Close this issue from the GitHub UI or with `gh issue close <this-issue-number>`
           EOF
           sed -i 's/^          //' /tmp/body.md
-          gh issue create --repo "$REPO" --label "coding-agent" --title "GH Copilot in Web UI Page" --body-file /tmp/body.md
+          gh issue create --repo "$REPO" --label "agent-mode" --title "GH Copilot in Web UI Page" --body-file /tmp/body.md
 
       - name: Issue 5 — GH Copilot CLI Page
         if: steps.check.outputs.skip == 'false'
@@ -215,31 +215,7 @@ jobs:
           sed -i 's/^          //' /tmp/body.md
           gh issue create --repo "$REPO" --label "copilot-cli" --title "GH Copilot App Page" --body-file /tmp/body.md
 
-      - name: Issue 8 — Azure Infra Review
-        if: steps.check.outputs.skip == 'false'
-        run: |
-          cat > /tmp/body.md <<'EOF'
-          ## Task
-          Run an Azure Container Apps infrastructure review using the custom agent `aca-infra-auditor.agent`.
-
-          - Title: **Azure Infra Review**
-          - Review from an Azure Well-Architected perspective and suggest short, practical improvements for demo usage.
-          - Keep findings concise and actionable.
-          - Reference guidance: https://github.com/MicrosoftDocs/well-architected/blob/main/well-architected/service-guides/azure-container-apps.md
-
-          ## Pre-flight requirement
-          The **Azure Container Apps Setup** issue must be completed first.
-
-          ## Assigned to
-          Custom agent `aca-infra-auditor.agent`
-
-          ## Completion
-          Document recommended improvements and close this issue.
-          EOF
-          sed -i 's/^          //' /tmp/body.md
-          gh issue create --repo "$REPO" --label "aca-infra-auditor" --title "Azure Infra Review" --body-file /tmp/body.md
-
-      - name: Issue 9 — Azure Deployment
+      - name: Issue 8 — Azure Deployment
         if: steps.check.outputs.skip == 'false'
         run: |
           cat > /tmp/body.md <<'EOF'
@@ -252,7 +228,7 @@ jobs:
           > ```
 
           For this step:
-          1. Confirm the **Home Page**, **GH Copilot in VS Code**, **GH Copilot in Web UI**, **GH Copilot CLI**, **GH Copilot SDK**, **GH Copilot App**, and **Azure Infra Review** issues are closed
+          1. Confirm the **Home Page**, **GH Copilot in VS Code**, **GH Copilot in Web UI**, **GH Copilot CLI**, **GH Copilot SDK**, and **GH Copilot App** issues are closed
           2. Verify the latest changes are live at the deployed URL
           3. If anything needs to be re-triggered, trigger the workflow manually using the command above
 
@@ -267,6 +243,31 @@ jobs:
           EOF
           sed -i 's/^          //' /tmp/body.md
           gh issue create --repo "$REPO" --label "copilot-cli" --title "Azure Deployment" --body-file /tmp/body.md
+
+      - name: Issue 9 — Azure Infra Review
+        if: steps.check.outputs.skip == 'false'
+        run: |
+          cat > /tmp/body.md <<'EOF'
+          ## Task
+          Run an Azure Container Apps infrastructure review using the custom agent `aca-infra-auditor.agent`.
+
+          - Title: **Azure Infra Review**
+          - Review from an Azure Well-Architected perspective and suggest short, practical improvements for demo usage.
+          - Keep findings concise and actionable.
+          - Reference guidance: https://github.com/MicrosoftDocs/well-architected/blob/main/well-architected/service-guides/azure-container-apps.md
+
+          ## Pre-flight requirement
+          The **Azure Deployment** issue must be completed first.
+
+          ## Assigned to
+          Custom agent `aca-infra-auditor.agent`
+
+          ## Completion
+          1. Save the full audit report to `AzureInfraReview.md` in the repository root (this file is in `.gitignore` — it is for local reference only).
+          2. Document recommended improvements and close this issue.
+          EOF
+          sed -i 's/^          //' /tmp/body.md
+          gh issue create --repo "$REPO" --label "aca-infra-auditor" --title "Azure Infra Review" --body-file /tmp/body.md
 
       - name: Issue 10 — Clean Up Azure Resources
         if: steps.check.outputs.skip == 'false'
