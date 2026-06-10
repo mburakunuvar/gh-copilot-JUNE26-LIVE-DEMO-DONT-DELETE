@@ -1,8 +1,8 @@
 ---
-name: "Issue 4 — GH Copilot in Web UI Page"
+name: "Issue 3 — GH Copilot in Web UI Page"
 about: "Build the GH Copilot in Web UI child page"
 title: "GH Copilot in Web UI Page"
-labels: "agent-mode"
+labels: "coding-agent"
 ---
 
 ## Task

@@ -1,5 +1,5 @@
 ---
-name: "Issue 3 — GH Copilot in VS Code Page"
+name: "Issue 4 — GH Copilot in VS Code Page"
 about: "Build the GH Copilot in VS Code child page"
 title: "GH Copilot in VS Code Page"
 labels: "agent-mode"

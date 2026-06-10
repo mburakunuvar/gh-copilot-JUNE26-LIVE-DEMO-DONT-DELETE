@@ -14,10 +14,11 @@ Run an Azure Container Apps infrastructure review using the custom agent `aca-in
 - Reference guidance: https://github.com/MicrosoftDocs/well-architected/blob/main/well-architected/service-guides/azure-container-apps.md
 
 ## Pre-flight requirement
-The **Azure Container Apps Setup** issue must be completed first.
+The **Azure Deployment** issue must be completed first.
 
 ## Assigned to
 Custom agent `aca-infra-auditor.agent`
 
 ## Completion
-Document recommended improvements and close this issue.
+1. Save the full audit report to `AzureInfraReview.md` in the repository root (this file is in `.gitignore` — it is for local reference only).
+2. Document recommended improvements and close this issue.

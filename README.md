@@ -88,17 +88,17 @@ Scaffold and beautify `index.html` as a **Welcome to GH Copilot** overview page 
 
 ---
 
-### Issue 3 — GH Copilot in VS Code Page
+### Issue 3 — GH Copilot in Web UI Page
 **Label**: `coding-agent`
 
-Build a child page for GH Copilot in VS Code. Follows the same structure and style as the home page.
+Build a child page for GH Copilot in Web UI. Follows the same structure and style as the home page. Assigned to Cloud Agent on GitHub.com.
 
 ---
 
-### Issue 4 — GH Copilot in Web UI Page
+### Issue 4 — GH Copilot in VS Code Page
 **Label**: `agent-mode`
 
-Build a child page for GH Copilot in Web UI. Follows the same structure and style as the home page.
+Build a child page for GH Copilot in VS Code. Follows the same structure and style as the home page. Assigned to Copilot Agent Mode (IDE).
 
 ---
 
@@ -167,8 +167,8 @@ The `auto-deploy.yml` workflow watches for issue closures. When all six page iss
 |---|---|---|
 | 1 | Azure Container Apps Setup | `init-demo` |
 | 2 | Scaffold & Beautify Home Page | `copilot-cli` |
-| 3 | GH Copilot in VS Code Page | `coding-agent` |
-| 4 | GH Copilot in Web UI Page | `agent-mode` |
+| 3 | GH Copilot in Web UI Page | `coding-agent` |
+| 4 | GH Copilot in VS Code Page | `agent-mode` |
 | 5 | GH Copilot CLI Page | `copilot-cli` |
 | 6 | GH Copilot SDK Page | `copilot-cli` |
 | 7 | GH Copilot App Page | `copilot-cli` |

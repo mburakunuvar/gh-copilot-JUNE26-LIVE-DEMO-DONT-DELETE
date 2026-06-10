@@ -3,8 +3,8 @@
 ## Current issue titles and labels
 1. Azure Container Apps Setup (`init-demo`)
 2. Scaffold and Beautify the Home Page (`copilot-cli`)
-3. GH Copilot in VS Code Page (`coding-agent`)
-4. GH Copilot in Web UI Page (`agent-mode`)
+3. GH Copilot in Web UI Page (`coding-agent`)
+4. GH Copilot in VS Code Page (`agent-mode`)
 5. GH Copilot CLI Page (`copilot-cli`)
 6. GH Copilot SDK Page (`copilot-cli`)
 7. GH Copilot App Page (`copilot-cli`)
